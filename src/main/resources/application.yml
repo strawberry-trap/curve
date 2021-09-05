@@ -1,0 +1,21 @@
+jpa:
+  properties:
+    hibernate.jdbc.time_zone: Asia/Seoul
+    hibernate.id.new_generator_mappings: true
+    hibernate.cache.use_second_level_cache: false
+#    hibernate.cache.use_query_cache: false
+#    hibernate.generate_statistics: false
+    # modify batch size as necessary
+    hibernate.jdbc.batch_size: 25
+#    hibernate.order_inserts: true
+#    hibernate.order_updates: true
+#    hibernate.query.fail_on_pagination_over_collection_fetch: true
+#    hibernate.query.in_clause_parameter_padding: true
+  hibernate:
+    ddl-auto: update
+    show_sql: true
+    naming:
+      physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  #        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+  #        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+  messages:
