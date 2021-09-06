@@ -38,4 +38,19 @@ public class ResultGenerator {
         }
         return result;
     }
+
+    public Result generateResultWithPrimitive(Object primitive, String failMsg) {
+
+        Result result = new Result();
+
+        if (primitive == null) {
+            result.setCode(CommonValues.Code.FAIL);
+            result.setMsg(failMsg);
+        }
+        else {
+            result.setData(primitive);
+            result.setCode(CommonValues.Code.SUCCESS);
+        }
+        return result;
+    }
 }

@@ -15,4 +15,24 @@ public class UserDTO {
         this.name = name;
         this.role = role;
     }
+
+    // getter & setter
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public CommonValues.Role getRole() {
+        return role;
+    }
+    public void setRole(CommonValues.Role role) {
+        this.role = role;
+    }
 }

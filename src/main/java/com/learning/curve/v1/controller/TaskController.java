@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/api/v1/task")
 public class TaskController {
 
     private TaskService taskService;
@@ -29,16 +30,23 @@ public class TaskController {
         this.resultGenerator = resultGenerator;
     }
 
-    @GetMapping("/api/v1/taskList")
-    public Result getAlltask(@RequestParam Pageable pageable) {
-
-        Page<TaskEntity> allTask = taskService.getAllTask(pageable);
-        return resultGenerator.generateResultWithList(allTask, "태스크 목록을 가져올 수 없습니다.");
+    @GetMapping("/taskList")
+    public Result getAlltask(Pageable pageable) {
+        return taskService.getAllTasks(pageable);
     }
 
-    @PostMapping("/api/v1/createTask")
-    public Result createTask(@RequestParam TaskDTO taskDTO) {
-        Optional<TaskEntity> createdTask = taskService.createTask(taskDTO);
-        return resultGenerator.generateResultWithOptional(createdTask, "태스크를 생성할 수 없습니다.");
+    @GetMapping("/task/{id}")
+    public Result getOneTask(@PathVariable Long id) {
+        return taskService.getOneTask(id);
+    }
+
+    @PostMapping("/createTask")
+    public Result createTask(TaskDTO taskDTO) {
+        return taskService.createTask(taskDTO);
+    }
+
+    @DeleteMapping("/deleteTask")
+    public Result deleteTask(Long id) {
+        return taskService.deleteTask(id);
     }
 }
