@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.Optional;
 
 @Component
-public class ResultGenerator {
+public class ResultGenerator<T> {
 
     public Result generateResultWithList(Iterable<?> list, String failMsg) {
 
@@ -39,7 +39,7 @@ public class ResultGenerator {
         return result;
     }
 
-    public Result generateResultWithPrimitive(Object primitive, String failMsg) {
+    public Result generateResultWithPrimitive(T primitive, String failMsg) {
 
         Result result = new Result();
 
